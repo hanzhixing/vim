@@ -6,4 +6,10 @@ ln -s ~/.vim/vimrc ~/.vimrc
 cd .vim
 mkdir bundle
 cd bundle
-
+git clone https://github.com/tpope/vim-pathogen.git
+git clone https://github.com/vim-scripts/winmanager.git
+git clone https://github.com/scrooloose/nerdtree.git
+git clone https://github.com/vim-scripts/taglist.vim.git
+git clone https://github.com/vim-scripts/bufexplorer.zip.git
+git clone https://github.com/fholgado/minibufexpl.vim.git
+git clone https://github.com/vim-scripts/matchit.zip.git
