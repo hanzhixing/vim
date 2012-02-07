@@ -1,7 +1,7 @@
 STEPS FOR THE FIRST TIME:
 
-cd ~
-git clone git@github.com:hanzhixing/.vim.git
+cd ~<br />
+git clone git@github.com:hanzhixing/.vim.git<br />
 ln -s ~/.vim/vimrc ~/.vimrc
 cd .vim
 mkdir bundle
