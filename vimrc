@@ -248,8 +248,7 @@ let Tlist_Ctags_Cmd= '/usr/bin/ctags'
 
 " 'matchit': Nothing
 
-" 'minibufexpl'
-autocmd BufWinEnter \[Buf\ List\] setl nonumber
+" 'minibufexpl': Nothing
 
 
 
