@@ -1,7 +1,4 @@
-<html>
-<head></head>
-<body>
-<span style="color:#f00;">STEPS FOR THE FIRST TIME:</span>
+STEPS FOR THE FIRST TIME:
 
 cd ~
 git clone git@github.com:hanzhixing/.vim.git
@@ -9,5 +6,4 @@ ln -s ~/.vim/vimrc ~/.vimrc
 cd .vim
 mkdir bundle
 cd bundle
-</body>
-</html>
+
