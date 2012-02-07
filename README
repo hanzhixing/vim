@@ -12,7 +12,7 @@ git clone git://github.com/scrooloose/nerdtree.git
 git clone git://github.com/vim-scripts/taglist.vim.git
 git clone git://github.com/vim-scripts/bufexplorer.zip.git
 git clone git://github.com/fholgado/minibufexpl.vim.git
-git clone hgit://github.com/vim-scripts/matchit.zip.git
+git clone git://github.com/vim-scripts/matchit.zip.git
 vim
 :Helptags
 :wq
