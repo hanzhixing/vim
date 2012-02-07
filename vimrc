@@ -72,12 +72,12 @@ syntax enable
 syntax on
 
 " Set font according to system
-if has("unix")
+if has("unix") && !has("gui_macvim")
     set guifont=Monospace\ 10
     set shell=/bin/bash
 elseif has("win32")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h10
-elseif has("mac")
+elseif has("mac") || has("gui_macvim")
     set guifont=Menlo:h14
     set shell=/bin/bash
 endif
@@ -117,7 +117,6 @@ set langmenu=en_US.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages en_US.utf-8
-
 
 
 
