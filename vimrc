@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General (2012-02-06)
+" General (2012-02-07)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load pathogen plugin anyway. important!
@@ -82,7 +82,8 @@ elseif has("mac")
     set shell=/bin/bash
 endif
 
-" Set highlighting theme. This setting will be overrode by the plugin settings.
+" Set highlighting theme. 
+" This setting will be overrode by the plugin settings.
 colorscheme evening
 
 " Highlight where it is over 79 columns
@@ -163,7 +164,7 @@ if has('gui_running')
     set guioptions-=R
 
     " Disable mouse
-    set mouse-=a
+    "set mouse-=a
 
 endif
 
@@ -227,19 +228,28 @@ endtry
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 'taglist.vim' - with ctags location setting
+" 'winmanager': Display layout
+let g:winManagerWindowLayout='NERDTree|TagList,BufExplorer'
+
+" 'nerdtree': 'winmanager' Integration.
+" This title value can make 'winmanager' to start up without a blank window
+let g:NERDTree_title='NERD Tree'
+
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+    return 1
+endfunction
+
+" 'taglist': Set the 'ctags' program location
 let Tlist_Ctags_Cmd= '/usr/bin/ctags'
 
-" 'matchit.vim' - no settings
+" 'matchit': Nothing
 
-" 'minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-" 'winmanager.vim'
-let g:winManagerWindowLayout='NERDTree,TagList|BufExplorer'
+" 'minibufexpl'
+autocmd BufWinEnter \[Buf\ List\] setl nonumber
 
 
 
