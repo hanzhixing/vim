@@ -6,7 +6,7 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 "source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-" use ':call pathogen#helptags()' to create help tags file
+" use ':Helptags' to create help tags file
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
