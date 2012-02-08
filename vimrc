@@ -178,17 +178,25 @@ endif
 " Tab, Indent and Linefeed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set expandtab
+" use spaces instead of <tab> character
+"set expandtab
+
+" the width of '>' operator indenting
 set shiftwidth=4
-set tabstop=4
+
+"set tabstop=4
+
+" 4 spaces for one pressing, '<tab>' character for twice pressing
+set softtabstop=4
+
 set smarttab
 
 set linebreak
 set tw=500
 
-set autoindent "Auto indent
-set smartindent "Smart indet
-set wrap "Wrap lines
+set autoindent
+set smartindent
+set wrap
 
 set fileencoding=utf-8
 set fileformats=unix,dos,mac
