@@ -251,7 +251,11 @@ function! NERDTree_IsValid()
 endfunction
 
 " 'taglist': Set the 'ctags' program location
-let Tlist_Ctags_Cmd= '/usr/bin/ctags'
+if has("mac") || has("gui_macvim")
+    let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
+else
+    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+endif
 
 " 'matchit': Nothing
 
