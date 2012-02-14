@@ -1,7 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General (2012-02-07)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Load pathogen plugin anyway. important!
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -179,7 +178,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " use spaces instead of <tab> character
-"set expandtab
+set expandtab
 
 " the width of '>' operator indenting
 set shiftwidth=4
