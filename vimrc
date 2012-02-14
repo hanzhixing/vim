@@ -76,14 +76,17 @@ if has("unix") && !has("gui_macvim")
     set shell=/bin/bash
 elseif has("win32")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h10
-elseif has("mac") || has("gui_macvim")
+elseif has("gui_macvim")
     set guifont=Menlo:h14
     set shell=/bin/bash
 endif
 
 " Set highlighting theme. 
-" This setting will be overrode by the plugin settings.
-colorscheme evening
+if (has("gui_macvim"))
+    colorscheme desert
+else
+    colorscheme evening
+endif
 
 " Highlight where it is over 79 columns
 " this 2 lines must be located below 'syntax on', 'guifont', 'colorschem'
