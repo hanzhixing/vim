@@ -30,7 +30,7 @@ set history=700
 set backspace=eol,start,indent
 
 " Reload .vimrc when it's edited.
-autocmd! bufwritepost .vimrc sourc ~/.vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
 
 
@@ -255,6 +255,8 @@ endfunction
 " 'taglist': Set the 'ctags' program location
 if has("mac") || has("gui_macvim")
     let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
+elseif has("win32")
+    let Tlist_Ctags_Cmd='D:\programs\ctags58\ctags.exe'
 else
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
 endif
