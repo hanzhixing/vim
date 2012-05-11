@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General (2012-02-07)
+" General (2012-05-11)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load pathogen plugin anyway. important!
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -237,22 +237,7 @@ endtry
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 'winmanager': Display layout
-let g:winManagerWindowLayout='NERDTree|TagList,BufExplorer'
-
-" 'nerdtree': 'winmanager' Integration.
-" This title value can make 'winmanager' to start up without a blank window
-let g:NERDTree_title='NERD Tree'
-
-function! NERDTree_Start()
-    exec 'NERDTree'
-endfunction
-
-function! NERDTree_IsValid()
-    return 1
-endfunction
-
-" 'taglist': Set the 'ctags' program location
+" Taglist
 if has("mac") || has("gui_macvim")
     let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 elseif has("win32")
@@ -261,9 +246,22 @@ else
     let Tlist_Ctags_Cmd='/usr/bin/ctags'
 endif
 
-" 'matchit': Nothing
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Compact_Format = 1
+let Tlist_File_Fold_Auto_Close = 0
+let Tlist_GainFocus_On_ToggleOpen = 1
 
-" 'minibufexpl': Nothing
+map <F11> :TlistToggle<cr>
+vmap <F11> <esc>:TlistToggle<cr>
+imap <F11> <esc>:TlistToggle<cr>
+
+" Nerdtree
+let Tlist_Use_Right_Window = 1
+map <F10> :NERDTreeToggle<cr>
+vmap <F10> <esc>:NERDTreeToggle<cr>
+imap <F10> <esc>:NERDTreeToggle<cr>
 
 
 
