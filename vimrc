@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General (2012-05-11)
+" General (2012-02-07)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load pathogen plugin anyway. important!
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -252,6 +252,7 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Compact_Format = 1
 let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
+let tlist_php_settings='php;f:function' 
 
 map <F11> :TlistToggle<cr>
 vmap <F11> <esc>:TlistToggle<cr>
