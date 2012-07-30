@@ -186,7 +186,7 @@ set expandtab
 " the width of '>' operator indenting
 set shiftwidth=4
 
-"set tabstop=4
+set tabstop=4
 
 " 4 spaces for one pressing, '<tab>' character for twice pressing
 set softtabstop=4
