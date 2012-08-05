@@ -253,15 +253,28 @@ let Tlist_Compact_Format = 1
 let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
 
-map <F11> :TlistToggle<cr>
-vmap <F11> <esc>:TlistToggle<cr>
-imap <F11> <esc>:TlistToggle<cr>
+if has("mac") || has("gui_macvim")
+    map <F6> :TlistToggle<cr>
+    vmap <F6> <esc>:TlistToggle<cr>
+    imap <F6> <esc>:TlistToggle<cr>
+elseif has("win32")
+    map <F11> :TlistToggle<cr>
+    vmap <F11> <esc>:TlistToggle<cr>
+    imap <F11> <esc>:TlistToggle<cr>
+endif
 
 " Nerdtree
 let Tlist_Use_Right_Window = 1
-map <F10> :NERDTreeToggle<cr>
-vmap <F10> <esc>:NERDTreeToggle<cr>
-imap <F10> <esc>:NERDTreeToggle<cr>
+
+if has("mac") || has("gui_macvim")
+    map <F5> :NERDTreeToggle<cr>
+    vmap <F5> <esc>:NERDTreeToggle<cr>
+    imap <F5> <esc>:NERDTreeToggle<cr>
+elseif has("win32")
+    map <F10> :NERDTreeToggle<cr>
+    vmap <F10> <esc>:NERDTreeToggle<cr>
+    imap <F10> <esc>:NERDTreeToggle<cr>
+endif
 
 
 
