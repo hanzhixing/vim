@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General (2012-05-11)
+" General (2012-02-07)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load pathogen plugin anyway. important!
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -186,7 +186,7 @@ set expandtab
 " the width of '>' operator indenting
 set shiftwidth=4
 
-"set tabstop=4
+set tabstop=4
 
 " 4 spaces for one pressing, '<tab>' character for twice pressing
 set softtabstop=4
@@ -252,6 +252,7 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Compact_Format = 1
 let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
+let tlist_php_settings='php;f:function' 
 
 if has("mac") || has("gui_macvim")
     map <F6> :TlistToggle<cr>
