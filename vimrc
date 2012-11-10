@@ -204,6 +204,7 @@ set fileencoding=utf-8
 set fileformats=unix,dos,mac
 set fileformat=unix
 
+autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
 
 
 
@@ -254,24 +255,50 @@ let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
 let tlist_php_settings='php;f:function' 
 
-if has("mac") || has("gui_macvim")
-    map <F6> :TlistToggle<cr>
-    vmap <F6> <esc>:TlistToggle<cr>
-    imap <F6> <esc>:TlistToggle<cr>
-elseif has("win32")
-    map <F11> :TlistToggle<cr>
-    vmap <F11> <esc>:TlistToggle<cr>
-    imap <F11> <esc>:TlistToggle<cr>
-endif
 
 " Nerdtree
 let Tlist_Use_Right_Window = 1
 
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key Mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" D is for Command key
 if has("mac") || has("gui_macvim")
-    map <F5> :NERDTreeToggle<cr>
-    vmap <F5> <esc>:NERDTreeToggle<cr>
-    imap <F5> <esc>:NERDTreeToggle<cr>
+    " Control + W (Switching from one window to another)
+    map <D-w>h :wincmd h<cr>
+    map <D-w>j :wincmd j<cr>
+    map <D-w>k :wincmd k<cr>
+    map <D-w>l :wincmd l<cr>
+    vmap <D-w>h <esc>:wincmd h<cr>
+    vmap <D-w>j <esc>:wincmd j<cr>
+    vmap <D-w>k <esc>:wincmd k<cr>
+    vmap <D-w>l <esc>:wincmd l<cr>
+    imap <D-w>h <esc>:wincmd h<cr>
+    imap <D-w>j <esc>:wincmd j<cr>
+    imap <D-w>k <esc>:wincmd k<cr>
+    imap <D-w>l <esc>:wincmd l<cr>
+
+    " TList - taglist
+    map <D-t> :TlistToggle<cr>
+    vmap <D-t> <esc>:TlistToggle<cr>
+    imap <D-t> <esc>:TlistToggle<cr>
+
+    " NERDTree
+    map <D-n> :NERDTreeToggle<cr>
+    vmap <D-n> <esc>:NERDTreeToggle<cr>
+    imap <D-n> <esc>:NERDTreeToggle<cr>
 elseif has("win32")
+    " TList - taglist
+    map <F11> :TlistToggle<cr>
+    vmap <F11> <esc>:TlistToggle<cr>
+    imap <F11> <esc>:TlistToggle<cr>
+
+    " NERDTree
     map <F10> :NERDTreeToggle<cr>
     vmap <F10> <esc>:NERDTreeToggle<cr>
     imap <F10> <esc>:NERDTreeToggle<cr>
