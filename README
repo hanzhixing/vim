@@ -3,7 +3,11 @@ STEPS FOR THE FIRST TIME:
 cd ~
 rm -rf ~/.vim/
 git clone git@github.com:hanzhixing/.vim.git
-ln -sf ~/.vim/vimrc ~/.vimrc
+
+ln -sf ~/.vim/vimrc.with_plugins ~/.vimrc
+OR
+ln -sf ~/.vim/vimrc.without_plugins ~/.vimrc
+
 cd .vim
 mkdir bundle
 cd bundle
