@@ -218,7 +218,7 @@ try
     if has("win32")
         set backupdir=C:\Windows\Temp
     else
-        set backupdir=~/.vim/backupdir
+        set backupdir=~/.vim/temp/backupdir
     endif
 catch
 endtry
@@ -228,7 +228,7 @@ try
     if has("win32")
         set undodir=C:\Windows\Temp
     else
-        set undodir=~/.vim/undodir
+        set undodir=~/.vim/temp/undodir
     endif
     set undofile
 catch
