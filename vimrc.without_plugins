@@ -75,20 +75,11 @@ else
     colorscheme default
 endif
 
-<<<<<<< HEAD:vimrc
-" Highlight where it is over line limit
-" this 4 lines must be located after 'syntax on', 'guifont', 'colorschem'
-highlight OverLineLimit81 ctermbg=darkred ctermfg=white guibg=#444444
-highlight OverLineLimit121 ctermbg=darkred ctermfg=white guibg=#888888
-match OverLineLimit81 /\%81v.*/
-match OverLineLimit121 /\%121v.*/
-=======
 " Highlight where it is over 79 columns
 " This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
 " or these settings will overwrite the setting you want.
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
 match OverLength /\%79v.*/
->>>>>>> eaf175b66b720e091aab8f90966730dc9a7843f0:vimrc.without_plugins
 
 " Set the default size of the window
 " if has("win32")
