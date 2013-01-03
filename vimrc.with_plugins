@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General (2012-02-07)
+" General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load pathogen plugin anyway. important!
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -11,26 +11,26 @@ call pathogen#infect()
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Show (partial) command in the last line of the screen
+" Show (partial) command in the last line of the screen.
 set showcmd
 
-" Set to auto read when a file is changed from the outside
+" Set to auto read when a file is changed from the outside.
 set autoread
 
-" Set to auto change directory
+" Set to auto change directory.
 "set autochdir
 
-" Detect filetype
+" Detect filetype.
 filetype plugin indent on
 
-" Sets how many lines of history VIM has to remember
+" Sets how many lines of history VIM has to remember.
 set history=700
 
-" Set backspace config
+" Set backspace config.
 set backspace=eol,start,indent
 
 " Reload .vimrc when it's edited.
-autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! BufWritePost .vimrc source ~/.vimrc
 
 
 
@@ -40,22 +40,19 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " Displays
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" TODO
+" Command-line auto-completion. Use <Tab> key when insert commands.
 set wildmenu
 
-" Always show current postion
+" Always show current postion.
 set ruler
 
-" Always show line numbers
+" Always show line numbers.
 set number
 
-" The command line height
+" The command line height. Default value is actually 1.
 set cmdheight=1
 
-" TODO
-set hidden
-
-" Set status line which shows you the most useful infomations
+" Set status line which shows you the most useful infomations.
 set laststatus=2
 
 " '\' is 'line-continuation' charactor here. See 'help line-continuation'.
@@ -65,44 +62,40 @@ set statusline=%F%m%r%h%w%y
     \(exists(\"+bomb\")\ &&\ &bomb)?\",BOM\":\"\").\"]\"}
     \\ [%{&ff}]\ [%l,%v(%p%%)]\ [LEN=%L]\ [\\%03.3b,\0x%04.4B]
 
-" Enable syntax highlight
-" TODO
-syntax enable
+" Enable syntax highlight.
 syntax on
 
-" Set font according to system
-if has("unix") && !has("gui_macvim")
-    set guifont=Monospace\ 10
-    set shell=/bin/bash
-elseif has("win32")
+" Set font according to system.
+if has("win32")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h10
-elseif has("gui_macvim")
+elseif has("mac")
     set guifont=Menlo:h14
-    set shell=/bin/bash
+else
+    set guifont=Monospace\ 10
 endif
 
 " Set highlighting theme. 
-if (has("gui_macvim"))
+if has("gui_running")
     colorscheme desert
 else
-    colorscheme evening
+    colorscheme default
 endif
 
-" Highlight where it is over line limit
-" this 4 lines must be located after 'syntax on', 'guifont', 'colorschem'
-highlight OverLineLimit81 ctermbg=darkred ctermfg=white guibg=#444444
-highlight OverLineLimit121 ctermbg=darkred ctermfg=white guibg=#888888
-match OverLineLimit81 /\%81v.*/
-match OverLineLimit121 /\%121v.*/
+" Highlight where it is over 79 columns
+" This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
+" or these settings will overwrite the setting you want.
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
+match OverLength /\%79v.*/
 
 " Set the default size of the window
-" if has("unix")
+" if has("win32")
+"     au GUIEnter * simalt ~x
+" else
 "     set lines=24
 "     set columns=83
-" elseif has("win32")
-"     au GUIEnter * simalt ~x
 " endif
 
+" When a bracket is inserted, shows the matching one briefly.
 set showmatch
 
 
@@ -113,14 +106,25 @@ set showmatch
 " Encoding and Languages
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set encoding=utf8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,chinese
+" Always use utf-8. Defualt is latin1 or value from system $LANG
 let &termencoding=&encoding
-set langmenu=en_US.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+set encoding=utf-8
+
+" Always save files in utf-8.
+set fileencoding=utf-8
+
+" Encoding detection order. The 'ucs-bom' is special value.
+set fileencodings=ucs-bom,utf-8,cp936,latin1
+
+" Always use \n as end-of-line for new files.
+set fileformat=unix
+
+" File format detection order.
+set fileformats=mac,unix,dos
+
+" Vim messages always in English.
 language messages en_US.utf-8
+
 
 
 
@@ -129,21 +133,21 @@ language messages en_US.utf-8
 " Searching
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Highlight search things
+" Highlight search things.
 set hlsearch
 
-" Make search act like search in modern browsers
-" Display the matche while typing
+" Make search act like search in address line of modern browsers.
+" Display the matche while typing.
 set incsearch
 
-" Stops the searching at the end of the file
+" Stops the searching at the end of the file.
 set nowrapscan
 
-"Ignore case when searching
+" Ignore case when searching.
 set ignorecase
 set smartcase
 
-" TODO
+" Pattern magic action.
 set magic
 
 
@@ -155,7 +159,6 @@ set magic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has('gui_running')
-
     " Never want a menubar and toolbar
     set guioptions-=m
     set guioptions-=T
@@ -168,13 +171,9 @@ if has('gui_running')
 
     " Disable mouse
     "set mouse-=a
-
 endif
 
 
-if has("gui_running")
-    colorscheme desert
-endif
 
 
 
@@ -182,15 +181,15 @@ endif
 " Tab, Indent and Linefeed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" use spaces instead of <tab> character
+" use spaces instead of <tab> character.
 set expandtab
 
-" the width of '>' operator indenting
+" the width of '>' operator indenting.
 set shiftwidth=4
 
 set tabstop=4
 
-" 4 spaces for one pressing, '<tab>' character for twice pressing
+" 4 spaces for one pressing, '<tab>' character for twice pressing.
 set softtabstop=4
 
 set smarttab
@@ -202,10 +201,8 @@ set autoindent
 set smartindent
 set wrap
 
-set fileencoding=utf-8
-set fileformats=unix,dos,mac
-set fileformat=unix
 
+autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
 
 
 
@@ -214,19 +211,30 @@ set fileformat=unix
 " Files, backups and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Turn backup off, since most stuff is in SVN, git anyway...
-set nobackup
-set nowritebackup
+" No swap file.
 set noswapfile
+
+" Turn backup off, since most stuff is in SVN, git anyway...
+"set nobackup
+" set nowritebackup
+
+" Persistent backup
+try
+    if has("win32")
+        set backupdir=C:\Windows\Temp
+    else
+        set backupdir=~/.vim/temp/backupdir
+    endif
+catch
+endtry
 
 " Persistent undo
 try
     if has("win32")
         set undodir=C:\Windows\Temp
     else
-        set undodir=~/.vim/undodir
+        set undodir=~/.vim/temp/undodir
     endif
-
     set undofile
 catch
 endtry
@@ -256,18 +264,58 @@ let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
 let tlist_php_settings='php;f:function' 
 
-map <F11> :TlistToggle<cr>
-vmap <F11> <esc>:TlistToggle<cr>
-imap <F11> <esc>:TlistToggle<cr>
 
 " Nerdtree
 let Tlist_Use_Right_Window = 1
-map <F10> :NERDTreeToggle<cr>
-vmap <F10> <esc>:NERDTreeToggle<cr>
-imap <F10> <esc>:NERDTreeToggle<cr>
 
 
 
 
 
-"EOF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key Mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" In order to use these Command key mapping, need to source this file manually
+" D is for Command key
+if has("mac")
+    " Control + W (Switching from one window to another)
+    map <D-w>h :wincmd h<cr>
+    map <D-w>j :wincmd j<cr>
+    map <D-w>k :wincmd k<cr>
+    map <D-w>l :wincmd l<cr>
+    vmap <D-w>h <esc>:wincmd h<cr>
+    vmap <D-w>j <esc>:wincmd j<cr>
+    vmap <D-w>k <esc>:wincmd k<cr>
+    vmap <D-w>l <esc>:wincmd l<cr>
+    imap <D-w>h <esc>:wincmd h<cr>
+    imap <D-w>j <esc>:wincmd j<cr>
+    imap <D-w>k <esc>:wincmd k<cr>
+    imap <D-w>l <esc>:wincmd l<cr>
+
+    " TList - taglist
+    map <D-t> :TlistToggle<cr>
+    vmap <D-t> <esc>:TlistToggle<cr>
+    imap <D-t> <esc>:TlistToggle<cr>
+
+    " NERDTree
+    map <D-n> :NERDTreeToggle<cr>
+    vmap <D-n> <esc>:NERDTreeToggle<cr>
+    imap <D-n> <esc>:NERDTreeToggle<cr>
+elseif has("win32")
+    " TList - taglist
+    map <F11> :TlistToggle<cr>
+    vmap <F11> <esc>:TlistToggle<cr>
+    imap <F11> <esc>:TlistToggle<cr>
+
+    " NERDTree
+    map <F10> :NERDTreeToggle<cr>
+    vmap <F10> <esc>:NERDTreeToggle<cr>
+    imap <F10> <esc>:NERDTreeToggle<cr>
+endif
+
+
+
+
+
+" End Of File. Sun Dec 30 03:08:16 UTC 2012
