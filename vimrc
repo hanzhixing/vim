@@ -88,10 +88,12 @@ else
     colorscheme evening
 endif
 
-" Highlight where it is over 79 columns
-" this 2 lines must be located below 'syntax on', 'guifont', 'colorschem'
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
-match OverLength /\%79v.*/
+" Highlight where it is over line limit
+" this 4 lines must be located after 'syntax on', 'guifont', 'colorschem'
+highlight OverLineLimit81 ctermbg=darkred ctermfg=white guibg=#444444
+highlight OverLineLimit121 ctermbg=darkred ctermfg=white guibg=#888888
+match OverLineLimit81 /\%81v.*/
+match OverLineLimit121 /\%121v.*/
 
 " Set the default size of the window
 " if has("unix")
