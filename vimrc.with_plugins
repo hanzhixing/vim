@@ -63,7 +63,8 @@ set statusline=%F%m%r%h%w%y
     \\ [%{&ff}]\ [%l,%v(%p%%)]\ [LEN=%L]\ [\\%03.3b,\0x%04.4B]
 
 " Set tabline
-set showtabline=2 " always show tabs in gvim, but not vim
+" set showtabline=2 " always show tabs in gvim, but not vim
+
 " set up tab labels with tab number, buffer name, number of windows
 function! GuiTabLabel()
   let label = ''
