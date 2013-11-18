@@ -149,7 +149,7 @@ set fileencodings=ucs-bom,utf-8,cp936,latin1
 set fileformat=unix
 
 " File format detection order.
-set fileformats=mac,unix,dos
+set fileformats=unix,mac,dos
 
 " Vim messages always in English.
 language messages en_US.utf-8
