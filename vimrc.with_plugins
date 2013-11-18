@@ -103,11 +103,11 @@ syntax on
 
 " Set font according to system.
 if has("win32")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h10
+    set guifont=DejaVu\ Sans\ Mono:h10
 elseif has("mac")
     set guifont=Menlo:h14
 else
-    set guifont=Monospace\ 10
+    set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 
 " Set highlighting theme. 
