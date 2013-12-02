@@ -289,7 +289,7 @@ if has("mac") || has("gui_macvim")
 elseif has("win32")
     let Tlist_Ctags_Cmd='D:\programs\ctags58\ctags.exe'
 else
-    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+    let Tlist_Ctags_Cmd='/usr/bin/ctags-exuberant'
 endif
 
 let Tlist_Show_One_File = 1
