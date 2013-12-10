@@ -1,11 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Load pathogen plugin anyway. important!
-runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
-"source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-" use ':Helptags' to create help tags file
+
+" Use pathogen.vim's command ':Helptags' to create help tags file
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -64,39 +64,6 @@ set statusline=%F%m%r%h%w%y
 
 " Set tabline
 " set showtabline=2 " always show tabs in gvim, but not vim
-
-" set up tab labels with tab number, buffer name, number of windows
-function! GuiTabLabel()
-  let label = ''
-  let bufnrlist = tabpagebuflist(v:lnum)
-  " Add '+' if one of the buffers in the tab page is modified
-  for bufnr in bufnrlist
-    if getbufvar(bufnr, "&modified")
-      let label = '+'
-      break
-    endif
-  endfor
-  " Append the tab number
-  let label .= v:lnum.': '
-  " Append the buffer name
-  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
-  if name == ''
-    " give a name to no-name documents
-    if &buftype=='quickfix'
-      let name = '[Quickfix List]'
-    else
-      let name = '[No Name]'
-    endif
-  else
-    " get only the file name
-    let name = fnamemodify(name,":t")
-  endif
-  let label .= name
-  " Append the number of windows in the tab page
-  let wincount = tabpagewinnr(v:lnum, '$')
-  return label . '  [' . wincount . ']'
-endfunction
-set guitablabel=%{GuiTabLabel()}
 
 " Enable syntax highlight.
 syntax on
@@ -231,7 +198,7 @@ set softtabstop=4
 set smarttab
 
 set linebreak
-set tw=500
+set textwidth=500
 
 set autoindent
 set smartindent
@@ -244,15 +211,8 @@ autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files, backups and undo
+" Persistent backup and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" No swap file.
-set noswapfile
-
-" Turn backup off, since most stuff is in SVN, git anyway...
-"set nobackup
-" set nowritebackup
 
 " Persistent backup
 try
@@ -289,7 +249,7 @@ if has("mac") || has("gui_macvim")
 elseif has("win32")
     let Tlist_Ctags_Cmd='D:\programs\ctags58\ctags.exe'
 else
-    let Tlist_Ctags_Cmd='/usr/bin/ctags-exuberant'
+    let Tlist_Ctags_Cmd='/usr/bin/ctags'
 endif
 
 let Tlist_Show_One_File = 1
@@ -298,11 +258,24 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Compact_Format = 1
 let Tlist_File_Fold_Auto_Close = 0
 let Tlist_GainFocus_On_ToggleOpen = 1
-let tlist_php_settings='php;f:function' 
+let tlist_php_settings='php;c:class;f:function' 
 
 
 " Nerdtree
 let Tlist_Use_Right_Window = 1
+
+
+
+
+" MiniBufExpl
+let g:miniBufExplorerMoreThanOne=0
+let g:miniBufExplForceSyntaxEnable=1
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
 
 
@@ -354,4 +327,4 @@ endif
 
 
 
-" End Of File. Sun Dec 30 03:08:16 UTC 2012
+" End Of File. Tue Dec 10 08:21:15 UTC 2013

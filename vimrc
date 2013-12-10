@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -57,39 +58,7 @@ set statusline=%F%m%r%h%w%y
     \\ [%{&ff}]\ [%l,%v(%p%%)]\ [LEN=%L]\ [\\%03.3b,\0x%04.4B]
 
 " Set tabline
-set showtabline=2 " always show tabs in gvim, but not vim
-" set up tab labels with tab number, buffer name, number of windows
-function! GuiTabLabel()
-  let label = ''
-  let bufnrlist = tabpagebuflist(v:lnum)
-  " Add '+' if one of the buffers in the tab page is modified
-  for bufnr in bufnrlist
-    if getbufvar(bufnr, "&modified")
-      let label = '+'
-      break
-    endif
-  endfor
-  " Append the tab number
-  let label .= v:lnum.': '
-  " Append the buffer name
-  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
-  if name == ''
-    " give a name to no-name documents
-    if &buftype=='quickfix'
-      let name = '[Quickfix List]'
-    else
-      let name = '[No Name]'
-    endif
-  else
-    " get only the file name
-    let name = fnamemodify(name,":t")
-  endif
-  let label .= name
-  " Append the number of windows in the tab page
-  let wincount = tabpagewinnr(v:lnum, '$')
-  return label . '  [' . wincount . ']'
-endfunction
-set guitablabel=%{GuiTabLabel()}
+" set showtabline=2 " always show tabs in gvim, but not vim
 
 " Enable syntax highlight.
 syntax on
@@ -224,7 +193,7 @@ set softtabstop=4
 set smarttab
 
 set linebreak
-set tw=500
+set textwidth=500
 
 set autoindent
 set smartindent
@@ -236,17 +205,9 @@ autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files, backups and undo
+" Persistent backup and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" No swap file.
-set noswapfile
-
-" Turn backup off, since most stuff is in SVN, git anyway...
-"set nobackup
-" set nowritebackup
 
 " Persistent backup
 try
@@ -293,10 +254,30 @@ if has("mac")
     imap <D-w>j <esc>:wincmd j<cr>
     imap <D-w>k <esc>:wincmd k<cr>
     imap <D-w>l <esc>:wincmd l<cr>
+
+    " TList - taglist
+    map <D-t> :TlistToggle<cr>
+    vmap <D-t> <esc>:TlistToggle<cr>
+    imap <D-t> <esc>:TlistToggle<cr>
+
+    " NERDTree
+    map <D-n> :NERDTreeToggle<cr>
+    vmap <D-n> <esc>:NERDTreeToggle<cr>
+    imap <D-n> <esc>:NERDTreeToggle<cr>
+elseif has("win32")
+    " TList - taglist
+    map <F11> :TlistToggle<cr>
+    vmap <F11> <esc>:TlistToggle<cr>
+    imap <F11> <esc>:TlistToggle<cr>
+
+    " NERDTree
+    map <F10> :NERDTreeToggle<cr>
+    vmap <F10> <esc>:NERDTreeToggle<cr>
+    imap <F10> <esc>:NERDTreeToggle<cr>
 endif
 
 
 
 
 
-" End Of File. Sun Dec 30 03:08:16 UTC 2012
+" End Of File. Tue Dec 10 08:21:15 UTC 2013
