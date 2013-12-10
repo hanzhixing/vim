@@ -4,6 +4,10 @@ cd ~
 rm -rf ~/.vim/
 git clone git@github.com:hanzhixing/.vim.git
 
+#If you want to use vim without any plugins
+ln -sf ~/.vim/vimrc ~/.vimrc
+
+#If you want to use vim with plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
@@ -15,9 +19,6 @@ git clone https://github.com/fholgado/minibufexpl.vim.git
 git clone https://github.com/vim-scripts/matchit.zip.git
 
 ln -sf ~/.vim/vimrc.plugins ~/.vimrc
-OR
-ln -sf ~/.vim/vimrc ~/.vimrc
-#which without any plugins
 
 vim
 :Helptags
