@@ -88,7 +88,7 @@ endif
 " This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
 " or these settings will overwrite the setting you want.
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
-match OverLength /\%79v.*/
+match OverLength /\%120v.*/
 
 " Set the default size of the window
 " if has("win32")
@@ -204,8 +204,6 @@ set autoindent
 set smartindent
 set wrap
 
-
-autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
 
 
 
