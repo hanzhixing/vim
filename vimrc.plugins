@@ -264,12 +264,9 @@ let tlist_php_settings='php;c:class;f:function'
 " Nerdtree
 let Tlist_Use_Right_Window = 1
 
-
-
-
 " MiniBufExpl
-let g:miniBufExplorerMoreThanOne=0
-let g:miniBufExplForceSyntaxEnable=1
+"let g:miniBufExplorerMoreThanOne=0
+"let g:miniBufExplForceSyntaxEnable=1
 
 
 
