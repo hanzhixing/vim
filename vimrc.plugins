@@ -88,7 +88,7 @@ endif
 " This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
 " or these settings will overwrite the setting you want.
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
-match OverLength /\%79v.*/
+match OverLength /\%120v.*/
 
 " Set the default size of the window
 " if has("win32")
@@ -205,8 +205,6 @@ set smartindent
 set wrap
 
 
-autocmd FileType html,phtml setlocal shiftwidth=2 tabstop=2
-
 
 
 
@@ -249,7 +247,7 @@ if has("mac") || has("gui_macvim")
 elseif has("win32")
     let Tlist_Ctags_Cmd='D:\programs\ctags58\ctags.exe'
 else
-    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+    let Tlist_Ctags_Cmd='/usr/bin/ctags-exuberant'
 endif
 
 let Tlist_Show_One_File = 1
@@ -267,52 +265,6 @@ let Tlist_Use_Right_Window = 1
 " MiniBufExpl
 "let g:miniBufExplorerMoreThanOne=0
 "let g:miniBufExplForceSyntaxEnable=1
-
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Key Mapping
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" In order to use these Command key mapping, need to source this file manually
-" D is for Command key
-if has("mac")
-    " Control + W (Switching from one window to another)
-    map <D-w>h :wincmd h<cr>
-    map <D-w>j :wincmd j<cr>
-    map <D-w>k :wincmd k<cr>
-    map <D-w>l :wincmd l<cr>
-    vmap <D-w>h <esc>:wincmd h<cr>
-    vmap <D-w>j <esc>:wincmd j<cr>
-    vmap <D-w>k <esc>:wincmd k<cr>
-    vmap <D-w>l <esc>:wincmd l<cr>
-    imap <D-w>h <esc>:wincmd h<cr>
-    imap <D-w>j <esc>:wincmd j<cr>
-    imap <D-w>k <esc>:wincmd k<cr>
-    imap <D-w>l <esc>:wincmd l<cr>
-
-    " TList - taglist
-    map <D-t> :TlistToggle<cr>
-    vmap <D-t> <esc>:TlistToggle<cr>
-    imap <D-t> <esc>:TlistToggle<cr>
-
-    " NERDTree
-    map <D-n> :NERDTreeToggle<cr>
-    vmap <D-n> <esc>:NERDTreeToggle<cr>
-    imap <D-n> <esc>:NERDTreeToggle<cr>
-elseif has("win32")
-    " TList - taglist
-    map <F11> :TlistToggle<cr>
-    vmap <F11> <esc>:TlistToggle<cr>
-    imap <F11> <esc>:TlistToggle<cr>
-
-    " NERDTree
-    map <F10> :NERDTreeToggle<cr>
-    vmap <F10> <esc>:NERDTreeToggle<cr>
-    imap <F10> <esc>:NERDTreeToggle<cr>
-endif
 
 
 
