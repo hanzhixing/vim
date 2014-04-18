@@ -12,9 +12,6 @@ set showcmd
 " Set to auto read when a file is changed from the outside.
 set autoread
 
-" Set to auto change directory.
-"set autochdir
-
 " Detect filetype.
 filetype plugin indent on
 

@@ -1,24 +1,37 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
+" Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Load pathogen plugin anyway. important!
-call pathogen#infect()
-
-" Use pathogen.vim's command ':Helptags' to create help tags file
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+" required
 set nocompatible
+
+" required
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" required
+Plugin 'gmarik/vundle'
+
+" optional plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'vim-scripts/matchit.zip'
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Show (partial) command in the last line of the screen.
 set showcmd
 
 " Set to auto read when a file is changed from the outside.
 set autoread
-
-" Set to auto change directory.
-"set autochdir
 
 " Detect filetype.
 filetype plugin indent on
@@ -84,7 +97,7 @@ else
     colorscheme default
 endif
 
-" Highlight where it is over 79 columns
+" Highlight where it is over 119 columns
 " This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
 " or these settings will overwrite the setting you want.
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
