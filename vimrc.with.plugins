@@ -290,6 +290,10 @@ if has("gui_running")
 endif
 
 
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
+
+
 
 
 
