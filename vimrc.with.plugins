@@ -9,11 +9,11 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" required
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " optional plugins
 Plugin 'scrooloose/nerdtree'
@@ -21,6 +21,11 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'elzr/vim-json'
+Plugin 'plasticboy/vim-markdown'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 
 
