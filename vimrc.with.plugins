@@ -101,8 +101,6 @@ endif
 " Set highlighting theme. 
 if has("gui_running")
     colorscheme desert
-else
-    colorscheme default
 endif
 
 " Highlight where it is over 119 columns
@@ -235,21 +233,13 @@ set wrap
 
 " Persistent backup
 try
-    if has("win32")
-        set backupdir=C:\Windows\Temp
-    else
-        set backupdir=~/.vim/temp/backupdir
-    endif
+    set backupdir=~/.vim/temp/backupdir
 catch
 endtry
 
 " Persistent undo
 try
-    if has("win32")
-        set undodir=C:\Windows\Temp
-    else
-        set undodir=~/.vim/temp/undodir
-    endif
+    set undodir=~/.vim/temp/undodir
     set undofile
 catch
 endtry
@@ -265,8 +255,6 @@ endtry
 " Taglist
 if has("mac") || has("gui_macvim")
     let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
-elseif has("win32")
-    let Tlist_Ctags_Cmd='D:\programs\ctags58\ctags.exe'
 else
     let Tlist_Ctags_Cmd='/usr/bin/ctags-exuberant'
 endif

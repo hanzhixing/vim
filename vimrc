@@ -72,8 +72,6 @@ endif
 " Set highlighting theme. 
 if has("gui_running")
     colorscheme desert
-else
-    colorscheme default
 endif
 
 " Highlight where it is over 79 columns
@@ -206,21 +204,13 @@ set wrap
 
 " Persistent backup
 try
-    if has("win32")
-        set backupdir=C:\Windows\Temp
-    else
-        set backupdir=~/.vim/temp/backupdir
-    endif
+    set backupdir=~/.vim/temp/backupdir
 catch
 endtry
 
 " Persistent undo
 try
-    if has("win32")
-        set undodir=C:\Windows\Temp
-    else
-        set undodir=~/.vim/temp/undodir
-    endif
+    set undodir=~/.vim/temp/undodir
     set undofile
 catch
 endtry
