@@ -199,8 +199,14 @@ set wrap
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Persistent backup and undo
+" Persistent swap, backup and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Persistent backup
+try
+    set dir=~/.vim/temp/swapfiledir
+catch
+endtry
 
 " Persistent backup
 try

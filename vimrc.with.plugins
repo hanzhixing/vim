@@ -233,6 +233,12 @@ set wrap
 
 " Persistent backup
 try
+    set dir=~/.vim/temp/swapfiledir
+catch
+endtry
+
+" Persistent backup
+try
     set backupdir=~/.vim/temp/backupdir
 catch
 endtry
