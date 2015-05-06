@@ -143,6 +143,8 @@ set smartcase
 " Pattern magic action.
 set magic
 
+set iskeyword+=-
+
 
 
 
