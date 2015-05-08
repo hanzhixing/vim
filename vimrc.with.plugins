@@ -22,6 +22,7 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'elzr/vim-json'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
