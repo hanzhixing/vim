@@ -2,7 +2,8 @@ STEPS FOR THE FIRST TIME:
 
 cd ~
 rm -rf ~/.vim/
-git clone git@github.com:hanzhixing/.vim.git
+git clone https://github.com/hanzhixing/vim.git
+ln -sf ~/vim ~/.vim
 
 #If you want to use vim without any plugins
 ln -sf ~/.vim/vimrc ~/.vimrc
