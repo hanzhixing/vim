@@ -92,13 +92,7 @@ set statusline=%F%m%r%h%w%y
 syntax on
 
 " Set font according to system.
-if has("win32")
-    set guifont=DejaVu\ Sans\ Mono:h10
-elseif has("mac")
-    set guifont=Menlo:h14
-else
-    set guifont=DejaVu\ Sans\ Mono\ 10
-endif
+set guifont=DejaVu\ Sans\ Mono:h14
 
 " Set highlighting theme. 
 if has("gui_running")
