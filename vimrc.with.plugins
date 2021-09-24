@@ -80,11 +80,13 @@ set cmdheight=1
 set laststatus=2
 
 " '\' is 'line-continuation' charactor here. See 'help line-continuation'.
-set statusline=%F%m%r%h%w%y
-    \%=
-    \%{\"[\".(&fenc==\"\"?&enc:&fenc).(
-    \(exists(\"+bomb\")\ &&\ &bomb)?\",BOM\":\"\").\"]\"}
-    \\ [%{&ff}]\ [%l,%v(%p%%)]\ [LEN=%L]\ [\\%03.3b,\0x%04.4B]
+if !&diff
+    set statusline=%F%m%r%h%w%y
+        \%=
+        \%{\"[\".(&fenc==\"\"?&enc:&fenc).(
+        \(exists(\"+bomb\")\ &&\ &bomb)?\",BOM\":\"\").\"]\"}
+        \\ [%{&ff}]\ [%l,%v(%p%%)]\ [LEN=%L]\ [\\%03.3b,\0x%04.4B]
+endif
 
 " Set tabline
 " set showtabline=2 " always show tabs in gvim, but not vim
