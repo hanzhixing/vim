@@ -208,19 +208,19 @@ set wrap
 
 " Persistent backup
 try
-    set dir=~/.vim/temp/swapfiledir
+    set dir=~/.vim/temp
 catch
 endtry
 
 " Persistent backup
 try
-    set backupdir=~/.vim/temp/backupdir
+    set backupdir=~/.vim/temp
 catch
 endtry
 
 " Persistent undo
 try
-    set undodir=~/.vim/temp/undodir
+    set undodir=~/.vim/temp
     set undofile
 catch
 endtry
