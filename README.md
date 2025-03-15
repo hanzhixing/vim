@@ -7,7 +7,6 @@ rm -rf ~/.vim
 
 ln -s ~/any/github/hanzhixing/vim ~/.vim
 
-#If you want to use vim without any plugins
 ln -sf ~/.vim/vimrc ~/.vimrc
 ```
 
