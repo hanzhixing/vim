@@ -62,33 +62,11 @@ endif
 " Enable syntax highlight.
 syntax on
 
-" Set font according to system.
-if has("win32")
-    set guifont=DejaVu\ Sans\ Mono:h10
-elseif has("mac")
-    set guifont=Menlo:h14
-else
-    set guifont=DejaVu\ Sans\ Mono\ 10
-endif
-
-" Set highlighting theme. 
-if has("gui_running")
-    colorscheme desert
-endif
-
 " Highlight where it is over 79 columns
 " This 2 lines must be loaded after 'syntax on', 'guifont', 'colorschem',
 " or these settings will overwrite the setting you want.
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#666666
 match OverLength /\%79v.*/
-
-" Set the default size of the window
-" if has("win32")
-"     au GUIEnter * simalt ~x
-" else
-"     set lines=24
-"     set columns=83
-" endif
 
 " When a bracket is inserted, shows the matching one briefly.
 set showmatch
@@ -152,29 +130,6 @@ set iskeyword+=-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GUI setting
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has('gui_running')
-    " Never want a menubar and toolbar
-    set guioptions-=m
-    set guioptions-=T
-
-    " Never want a scrollbar
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-
-    " Disable mouse
-    "set mouse-=a
-endif
-
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab, Indent and Linefeed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -229,4 +184,36 @@ endtry
 
 
 
-" End Of File. Tue Dec 10 08:21:15 UTC 2013
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ 20
+
+    " Set the default size of the window
+    set lines=24
+    set columns=83
+
+    " Set highlighting theme.
+    colorscheme desert
+
+    " Never want a menubar and toolbar
+    set guioptions-=m
+    set guioptions-=T
+
+    " Never want a scrollbar
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+
+    " Disable mouse
+    "set mouse-=a
+endif
+
+
+
+
+
+" End Of File. 2025-03-15T04:20:14+00:00
