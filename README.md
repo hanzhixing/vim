@@ -1,4 +1,4 @@
-STEPS FOR THE FIRST TIME:
+# How to Use
 
 git clone https://github.com/hanzhixing/vim.git ~/any/github/hanzhixing/vim
 
