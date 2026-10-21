@@ -158,27 +158,20 @@ set wrap
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Persistent swap, backup and undo
+" Persistent temp files like swap, backup and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Persistent backup
-try
-    set dir=~/.vim/temp
-catch
-endtry
+if !isdirectory($HOME . '/.vim/temp')
+    call mkdir($HOME . '/.vim/temp', 'p')
+endif
 
-" Persistent backup
-try
-    set backupdir=~/.vim/temp
-catch
-endtry
+set dir=$HOME/.vim/temp
+set backupdir=$HOME/.vim/temp
+set undodir=$HOME/.vim/temp
+set undofile
+set viminfo='100,<50,:100,%,s10,h,n$HOME/.vim/temp/viminfo
 
-" Persistent undo
-try
-    set undodir=~/.vim/temp
-    set undofile
-catch
-endtry
+let g:netrw_home = $HOME . '/.vim/temp'
 
 
 
